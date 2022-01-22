@@ -4,11 +4,11 @@ acc_balance = []
 sum_cash = 0
 login = 'user1'
 password = '123'
-
+block_bankomat = '1'
 
 log = input('Aby się zalogowac podaj Login: ')
 paswd = input('Podaj Hasło: ')
-if log == login and paswd == password and i != '2':
+if log == login and paswd == password and block_bankomat != '2':
     while choice != '0':
         print('1 wplac pieniadze \n2 wyplac pieniadze \n3 stan konta \n4 historia tranzakcji \n5 zmiana loginu \n6 zmiana hasla \n7 wyloguj')
         choice = input('Co chcesz zrobic ?')
@@ -21,15 +21,17 @@ if log == login and paswd == password and i != '2':
                 print('Niestety nie mozesz wyplacic wiecej niz masz :(')
             else:
                 acc_balance.append(-int(choice))
-        if choice == '3' :
+        elif choice == '3' :
             print(sum(acc_balance))
-        if choice == '4' :
+        elif choice == '4' :
             print(acc_balance)
-        if choice == '5':
+        elif choice == '5':
             change_login = input('Na jaki login chcesz zmienic ? :')
             login = change_login
-        if choice == '6':
+        elif choice == '6':
             change_password = input('Na jakie haslo chcesz zmienic ?: ')
-            change_password = password
+            change_password = str(password)
 
+else:
+    exit()
 
