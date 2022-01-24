@@ -1,14 +1,15 @@
+import os
 #Bankomat
 choice = None
 acc_balance = []
 sum_cash = 0
 login = 'user1'
 password = '123'
-block_bankomat = '1'
+block_bankomat = False
 
 log = input('Aby się zalogowac podaj Login: ')
 paswd = input('Podaj Hasło: ')
-if log == login and paswd == password and block_bankomat != '2':
+if log == login and paswd == password and block_bankomat != True:
     while choice != '0':
         print('1 wplac pieniadze \n2 wyplac pieniadze \n3 stan konta \n4 historia tranzakcji \n5 zmiana loginu \n6 zmiana hasla \n7 wyloguj')
         choice = input('Co chcesz zrobic ?')
@@ -31,6 +32,8 @@ if log == login and paswd == password and block_bankomat != '2':
         elif choice == '6':
             change_password = input('Na jakie haslo chcesz zmienic ?: ')
             change_password = str(password)
+        elif  choice == '7':
+            break
 
 else:
     exit()
