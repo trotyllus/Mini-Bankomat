@@ -21,17 +21,12 @@ logi = (
     ('2020-12-10 09:07:58.075064', 'WARNING'),
 )
 # czyszecnie danych czyli duplikaty
-clear_dane = []
+clear_dane = set(logi)
 
-for dane in logi:
-    if dane not in clear_dane:
-        clear_dane.append(dane)
+
 
 def sprawdzanie_logow(dane, logi_do_spr):
-    for log in logi_do_spr:
-        if log not in dane:
-            return False
-    return True
+    return dane.issuperset(logi_do_spr)
 
 logi_do_sprawdzenia = (
     ('2020-12-10 09:07:58.075064', 'INFO'),
